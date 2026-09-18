@@ -39,8 +39,16 @@ if reference_nucleotide == reference_base:
     print("Reference base validated: True")
 else:
     print("Reference base validated: False")
-codon_start_index = cds_start + codon_start - 1
+cds_start = 114
+cds_end = 4511
 
-reference_codon = sequence[codon_start_index:codon_start_index + 3]
+cds_sequence = sequence[cds_start - 1:cds_end]
 
+codon_start = position - ((position - 1) % 3)
+
+codon_start_index = codon_start - 1
+
+reference_codon = cds_sequence[codon_start_index:codon_start_index + 3]
+
+print("CDS length:", len(cds_sequence))
 print("Reference codon:", reference_codon)
