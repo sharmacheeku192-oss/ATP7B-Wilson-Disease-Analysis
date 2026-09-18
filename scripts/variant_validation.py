@@ -21,7 +21,9 @@ print("Reference base:", reference_base)
 print("Alternate base:", alternate_base)
 with open(sequence_file, "r") as file:
     fasta_lines = file.readlines()
+codon_start = position - ((position - 1) % 3)
 
+print("Codon starts at CDS position:", codon_start)
 sequence = "".join(line.strip() for line in fasta_lines[1:])
 cds_start = 114
 
