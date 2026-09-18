@@ -1,6 +1,7 @@
 from pathlib import Path
 
 variant_file = Path("data/variants/variants.csv")
+sequence_file = Path("data/reference_sequences/ATP7B_mRNA_NM_000053.4.fasta")
 
 with open(variant_file, "r") as file:
     lines = file.readlines()
@@ -18,3 +19,7 @@ print("DNA change:", dna_change)
 print("Coding position:", position)
 print("Reference base:", reference_base)
 print("Alternate base:", alternate_base)
+with open(sequence_file, "r") as file:
+    fasta_lines = file.readlines()
+
+sequence = "".join(line.strip() for line in fasta_lines[1:])
