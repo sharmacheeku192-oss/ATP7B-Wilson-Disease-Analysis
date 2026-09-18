@@ -57,4 +57,4 @@ codon_position_in_codon = position - codon_start
 print("Position within codon:", codon_position_in_codon + 1)
 codon_position_in_codon = (position - codon_start) 
 
-print("Position within codon:", codon_position_in_codon + 1)
+
