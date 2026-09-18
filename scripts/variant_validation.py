@@ -23,3 +23,11 @@ with open(sequence_file, "r") as file:
     fasta_lines = file.readlines()
 
 sequence = "".join(line.strip() for line in fasta_lines[1:])
+cds_start = 114
+
+mrna_position = cds_start + position - 1
+
+print("mRNA position:", mrna_position)
+reference_nucleotide = sequence[mrna_position - 1]
+
+print("Reference nucleotide in FASTA:", reference_nucleotide)
