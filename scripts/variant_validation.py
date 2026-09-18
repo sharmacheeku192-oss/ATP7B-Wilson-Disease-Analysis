@@ -6,3 +6,5 @@ with open(variant_file, "r") as file:
     lines = file.readlines()
 
 print(lines)
+data = lines[1].strip().split(",")
+print(data)
