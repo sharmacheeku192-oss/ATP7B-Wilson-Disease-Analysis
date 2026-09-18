@@ -26,7 +26,10 @@ sequence = "".join(line.strip() for line in fasta_lines[1:])
 cds_start = 114
 
 mrna_position = cds_start + position - 1
-
+if reference_nucleotide == reference_base:
+    print("Reference base validated: True")
+else:
+    print("Reference base validated: False")
 print("mRNA position:", mrna_position)
 reference_nucleotide = sequence[mrna_position - 1]
 
