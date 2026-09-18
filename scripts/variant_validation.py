@@ -52,3 +52,8 @@ reference_codon = cds_sequence[codon_start_index:codon_start_index + 3]
 
 print("CDS length:", len(cds_sequence))
 print("Reference codon:", reference_codon)
+mutant_codon = (
+    reference_codon[:codon_position_in_codon]
+    + alternate_base
+    + reference_codon[codon_position_in_codon + 1:]
+)
