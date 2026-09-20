@@ -144,7 +144,8 @@ amino_acid_names = {
 }
 
 calculated_protein_change = (
-    amino_acid_names.get(reference_amino_acid, "?")
+    "p."
+    + amino_acid_names.get(reference_amino_acid, "?")
     + str((position + 1) // 3)
     + amino_acid_names.get(mutated_amino_acid, "?")
 )
