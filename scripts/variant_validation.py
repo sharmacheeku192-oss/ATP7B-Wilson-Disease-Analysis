@@ -115,4 +115,44 @@ if reference_amino_acid != mutated_amino_acid:
     print("Amino acid change: Missense")
 else:
     print("Amino acid change: Synonymous")
-    
+    # Validate reported protein change
+reported_amino_acid = protein_change[2:5]
+reported_position = int("".join(filter(str.isdigit, protein_change)))
+reported_new_amino_acid = protein_change[-3]
+
+amino_acid_names = {
+    "A": "Ala",
+    "R": "Arg",
+    "N": "Asn",
+    "D": "Asp",
+    "C": "Cys",
+    "E": "Glu",
+    "Q": "Gln",
+    "G": "Gly",
+    "H": "His",
+    "I": "Ile",
+    "L": "Leu",
+    "K": "Lys",
+    "M": "Met",
+    "F": "Phe",
+    "P": "Pro",
+    "S": "Ser",
+    "T": "Thr",
+    "W": "Trp",
+    "Y": "Tyr",
+    "V": "Val"
+}
+
+calculated_protein_change = (
+    amino_acid_names.get(reference_amino_acid, "?")
+    + str((position + 1) // 3)
+    + amino_acid_names.get(mutated_amino_acid, "?")
+)
+
+print("Calculated protein change:", calculated_protein_change)
+print("Reported protein change:", protein_change)
+
+if calculated_protein_change == protein_change:
+    print("Protein change validated: True")
+else:
+    print("Protein change validated: False")
